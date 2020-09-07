@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ButtonTheme.tres" type="Theme" id=1]
+[ext_resource path="res://misc/RemovableInput.gd" type="Script" id=2]
+
+[node name="RemovableInput" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_right = 1037.0
+margin_bottom = 2160.0
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="."]
+margin_left = 1041.0
+margin_right = 1080.0
+margin_bottom = 2160.0
+theme = ExtResource( 1 )
+text = "x"
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://LabelTheme.tres" type="Theme" id=1]
+[ext_resource path="res://SmallerLabelTheme.tres" type="Theme" id=2]
+[ext_resource path="res://LineEditTheme.tres" type="Theme" id=3]
+[ext_resource path="res://ButtonTheme.tres" type="Theme" id=4]
+[ext_resource path="res://screens/CreateDebitariumScreen.gd" type="Script" id=5]
+
+[node name="CreateDebitariumScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 1080.0
+margin_bottom = 73.0
+theme = ExtResource( 1 )
+text = "CREATING NEW DEBITARIUM"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 77.0
+margin_right = 1080.0
+margin_bottom = 81.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 85.0
+margin_right = 1080.0
+margin_bottom = 2160.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+margin_right = 1080.0
+margin_bottom = 503.0
+custom_constants/separation = 20
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = -1.0
+margin_right = 1080.0
+margin_bottom = 99.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+text = "Name"
+valign = 1
+
+[node name="NameInput" type="LineEdit" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 1080.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 1080, 100 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PeopleLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 239.0
+margin_right = 1080.0
+margin_bottom = 339.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+text = "People"
+valign = 1
+
+[node name="PeopleContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 360.0
+margin_right = 1080.0
+margin_bottom = 360.0
+
+[node name="PeopleButton" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 380.0
+margin_right = 1080.0
+margin_bottom = 503.0
+theme = ExtResource( 4 )
+text = "+"
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/PeopleButton" to="." method="_on_PeopleButton_pressed"]
