@@ -1,3 +1,4 @@
+class_name RemovableInput
 extends HBoxContainer
 
 onready var edit = $LineEdit

@@ -12,22 +12,25 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 274.0
-margin_top = 955.0
-margin_right = 805.0
-margin_bottom = 1205.0
+margin_left = 292.0
+margin_top = 1016.0
+margin_right = 788.0
+margin_bottom = 1143.0
 
 [node name="NewDebitarium" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_right = 531.0
+margin_right = 496.0
 margin_bottom = 123.0
 theme = ExtResource( 1 )
 text = "NEW DEBITARIUM"
 
-[node name="BrowseExisting" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="DebitariumListContainer" type="ScrollContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 127.0
-margin_right = 531.0
-margin_bottom = 250.0
-theme = ExtResource( 1 )
-text = "BROWSE EXISTING"
+margin_right = 496.0
+margin_bottom = 127.0
+
+[node name="DebitariumList" type="VBoxContainer" parent="CenterContainer/VBoxContainer/DebitariumListContainer"]

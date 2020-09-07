@@ -8,9 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Object",
+"class": "Data",
+"language": "GDScript",
+"path": "res://data/Data.gd"
+}, {
+"base": "Node",
+"class": "DataManager",
+"language": "GDScript",
+"path": "res://data/DataManager.gd"
+}, {
+"base": "Control",
+"class": "DebitariumListEntry",
+"language": "GDScript",
+"path": "res://misc/DebitariumListEntry.gd"
+}, {
+"base": "HBoxContainer",
+"class": "RemovableInput",
+"language": "GDScript",
+"path": "res://misc/RemovableInput.gd"
+} ]
 _global_script_class_icons={
-
+"Data": "",
+"DataManager": "",
+"DebitariumListEntry": "",
+"RemovableInput": ""
 }
 
 [application]
@@ -18,11 +41,14 @@ _global_script_class_icons={
 config/name="Debitarium"
 config/icon="res://icon.png"
 
+[autoload]
+
+gDataManager="*res://data/DataManager.gd"
+
 [display]
 
 window/size/width=1080
 window/size/height=2160
-window/size/fullscreen=true
 
 [rendering]
 

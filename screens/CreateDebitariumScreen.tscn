@@ -40,7 +40,7 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 margin_right = 1080.0
-margin_bottom = 503.0
+margin_bottom = 646.0
 custom_constants/separation = 20
 
 [node name="NameLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
@@ -60,6 +60,7 @@ margin_bottom = 220.0
 rect_min_size = Vector2( 1080, 100 )
 size_flags_horizontal = 3
 theme = ExtResource( 3 )
+text = "UnnamedDebitarium"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -85,4 +86,81 @@ margin_right = 1080.0
 margin_bottom = 503.0
 theme = ExtResource( 4 )
 text = "+"
+
+[node name="DoneButton" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 523.0
+margin_right = 1080.0
+margin_bottom = 646.0
+theme = ExtResource( 4 )
+text = "DONE"
+
+[node name="PopupPanel" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupTitle" type="Label" parent="PopupPanel/VBoxContainer"]
+margin_right = 980.0
+margin_bottom = 73.0
+theme = ExtResource( 1 )
+text = "Create this debitarium?"
+
+[node name="HSeparator" type="HSeparator" parent="PopupPanel/VBoxContainer"]
+margin_top = 77.0
+margin_right = 980.0
+margin_bottom = 177.0
+custom_constants/separation = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Recap" type="Label" parent="PopupPanel/VBoxContainer"]
+margin_top = 181.0
+margin_right = 980.0
+margin_bottom = 238.0
+theme = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupPanel/VBoxContainer"]
+margin_top = 242.0
+margin_right = 980.0
+margin_bottom = 365.0
+
+[node name="Yes" type="Button" parent="PopupPanel/VBoxContainer/HBoxContainer"]
+margin_right = 488.0
+margin_bottom = 123.0
+size_flags_horizontal = 3
+theme = ExtResource( 4 )
+text = "YES"
+
+[node name="No" type="Button" parent="PopupPanel/VBoxContainer/HBoxContainer"]
+margin_left = 492.0
+margin_right = 980.0
+margin_bottom = 123.0
+size_flags_horizontal = 3
+theme = ExtResource( 4 )
+text = "NO"
+
+[node name="OK" type="Button" parent="PopupPanel/VBoxContainer/HBoxContainer"]
+visible = false
+margin_left = 656.0
+margin_right = 980.0
+margin_bottom = 123.0
+size_flags_horizontal = 3
+theme = ExtResource( 4 )
+text = "OK"
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/PeopleButton" to="." method="_on_PeopleButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/DoneButton" to="." method="_on_DoneButton_pressed"]
+[connection signal="pressed" from="PopupPanel/VBoxContainer/HBoxContainer/Yes" to="." method="_on_Yes_pressed"]
+[connection signal="pressed" from="PopupPanel/VBoxContainer/HBoxContainer/No" to="." method="_on_No_pressed"]
+[connection signal="pressed" from="PopupPanel/VBoxContainer/HBoxContainer/OK" to="." method="_on_No_pressed"]
