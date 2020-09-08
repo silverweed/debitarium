@@ -1,0 +1,98 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://LabelTheme.tres" type="Theme" id=1]
+[ext_resource path="res://screens/PersonTransactionList.gd" type="Script" id=2]
+[ext_resource path="res://ButtonTheme.tres" type="Theme" id=3]
+
+[node name="PersonTransactionList" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 30.0
+margin_right = -20.0
+margin_bottom = -30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1040.0
+margin_bottom = 125.0
+
+[node name="PersonName" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_top = 26.0
+margin_right = 911.0
+margin_bottom = 99.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "PERSON NAME"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 915.0
+margin_right = 1040.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 125, 125 )
+theme = ExtResource( 3 )
+text = "x"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 129.0
+margin_right = 1040.0
+margin_bottom = 229.0
+custom_constants/separation = 100
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 233.0
+margin_right = 1040.0
+margin_bottom = 1742.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TransactionList" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+margin_right = 1040.0
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+margin_top = 1746.0
+margin_right = 1040.0
+margin_bottom = 1846.0
+custom_constants/separation = 100
+
+[node name="Total" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 1850.0
+margin_right = 1040.0
+margin_bottom = 2100.0
+rect_min_size = Vector2( 0, 250 )
+theme = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Total"]
+margin_top = 88.0
+margin_right = 518.0
+margin_bottom = 161.0
+size_flags_horizontal = 3
+text = "TOTAL"
+
+[node name="CashLabel" type="Label" parent="VBoxContainer/Total"]
+margin_left = 522.0
+margin_top = 88.0
+margin_right = 1040.0
+margin_bottom = 161.0
+size_flags_horizontal = 3
+text = "0"
+align = 2
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

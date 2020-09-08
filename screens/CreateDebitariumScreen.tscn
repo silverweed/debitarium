@@ -44,9 +44,8 @@ margin_bottom = 646.0
 custom_constants/separation = 20
 
 [node name="NameLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = -1.0
 margin_right = 1080.0
-margin_bottom = 99.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
@@ -66,9 +65,9 @@ __meta__ = {
 }
 
 [node name="PeopleLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 239.0
+margin_top = 240.0
 margin_right = 1080.0
-margin_bottom = 339.0
+margin_bottom = 340.0
 rect_min_size = Vector2( 0, 100 )
 size_flags_horizontal = 3
 theme = ExtResource( 2 )

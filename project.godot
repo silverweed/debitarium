@@ -24,16 +24,28 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://misc/DebitariumListEntry.gd"
 }, {
-"base": "HBoxContainer",
+"base": "Control",
+"class": "RemovableControl",
+"language": "GDScript",
+"path": "res://misc/RemovableControl.gd"
+}, {
+"base": "RemovableControl",
 "class": "RemovableInput",
 "language": "GDScript",
 "path": "res://misc/RemovableInput.gd"
+}, {
+"base": "RemovableControl",
+"class": "RemovableLabel",
+"language": "GDScript",
+"path": "res://misc/RemovableLabel.gd"
 } ]
 _global_script_class_icons={
 "Data": "",
 "DataManager": "",
 "DebitariumListEntry": "",
-"RemovableInput": ""
+"RemovableControl": "",
+"RemovableInput": "",
+"RemovableLabel": ""
 }
 
 [application]

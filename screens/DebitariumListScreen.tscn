@@ -46,11 +46,13 @@ text = "DEBITARIUM NAME"
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 margin_top = 77.0
 margin_right = 1080.0
-margin_bottom = 81.0
+margin_bottom = 177.0
+custom_constants/separation = 100
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-margin_top = 85.0
+margin_top = 181.0
 margin_right = 1080.0
-margin_bottom = 85.0
+margin_bottom = 2160.0
+size_flags_vertical = 3
 
 [node name="People" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
