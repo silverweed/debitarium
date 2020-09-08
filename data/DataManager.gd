@@ -16,3 +16,7 @@ func load_save_files():
 
 func save_cur():
 	SaveManager.save(debitarium.name, debitarium)
+
+
+func delete_file(fname):
+	SaveManager.delete_file(fname)

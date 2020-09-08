@@ -83,3 +83,10 @@ static func load_save(fname: String) -> Data.Debitarium:
 	else:
 		print("load_save(", fname, ") failed")
 		return null
+
+
+static func delete_file(fname: String):
+	if !fname.begins_with(SAVE_DIRECTORY):
+		fname = SAVE_DIRECTORY + fname
+	var dir = Directory.new()
+	dir.remove(fname)
