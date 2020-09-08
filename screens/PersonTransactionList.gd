@@ -29,6 +29,7 @@ func calc_total():
 	var total = Data.Cash.from_cents(person.balance.calc_balance())
 	cash_label.text = total.to_str()
 	cash_label.modulate = total.get_color()
+	print(JSON.print(gDataManager.debitarium.serialize()))
 
 
 func _on_ExitButton_pressed():

@@ -38,6 +38,11 @@ _global_script_classes=[ {
 "class": "RemovableLabel",
 "language": "GDScript",
 "path": "res://misc/RemovableLabel.gd"
+}, {
+"base": "Object",
+"class": "SaveManager",
+"language": "GDScript",
+"path": "res://data/SaveManager.gd"
 } ]
 _global_script_class_icons={
 "Data": "",
@@ -45,7 +50,8 @@ _global_script_class_icons={
 "DebitariumListEntry": "",
 "RemovableControl": "",
 "RemovableInput": "",
-"RemovableLabel": ""
+"RemovableLabel": "",
+"SaveManager": ""
 }
 
 [application]

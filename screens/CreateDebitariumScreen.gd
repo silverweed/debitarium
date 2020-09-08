@@ -48,6 +48,7 @@ func _on_PeopleButton_pressed():
 
 
 func _on_Yes_pressed():
+	gDataManager.save_cur()
 	get_tree().change_scene("res://screens/DebitariumListScreen.tscn")
 
 

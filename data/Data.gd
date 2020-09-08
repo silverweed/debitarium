@@ -10,6 +10,37 @@ class Debitarium:
 		for p in people_names:
 			assert(p is String and p != null)
 			people.append(Person.new(p))
+			
+	
+	func serialize() -> Dictionary:
+		var ser_people = []
+		for p in people:
+			ser_people.append(p.serialize())
+		return {
+			"name": name,
+			"people": ser_people
+		}
+	
+	
+	func deserialize(d: Dictionary) -> bool:
+		if !("name" in d) or !(d["name"] is String):
+			print("[ ERROR ] 'name' not found while deserializing Debitarium")
+			return false
+			
+		if !("people" in d) or !(d["people"] is Array):
+			print("[ ERROR ] 'people' not found while deserializing Debitarium")
+			return false
+			
+		name = d["name"]
+		var ser_people = d["people"]
+		for ser_p in ser_people:
+			var p = Person.new("")
+			if !p.deserialize(ser_p):
+				return false
+			people.append(p)
+		
+		return len(name) > 0 and len(people) > 0
+	
 
 class Person:
 	var name: String
@@ -18,7 +49,29 @@ class Person:
 	func _init(_name: String):
 		name = _name
 		balance = Balance.new()
-
+		
+		
+	func serialize() -> Dictionary:
+		return {
+			"name": name,
+			"balance": balance.serialize()
+		}
+	
+	func deserialize(d: Dictionary) -> bool:
+		if !("name" in d) or !(d["name"] is String):
+			print("[ ERROR ] 'name' not found while deserializing Person")
+			return false
+			
+		if !("balance" in d) or !(d["balance"] is Array):
+			print("[ ERROR ] 'balance' not found while deserializing Person")
+			return false
+			
+		name = d["name"]
+		if !balance.deserialize(d["balance"]):
+			return false
+		
+		return true
+		
 
 # represents one monetary value
 class Cash:
@@ -72,6 +125,14 @@ class Cash:
 		else:
 			return Color(5.0/255.0, 164.0/255.0, 0.0)
 
+	func serialize() -> int:
+		return tot_cents
+		
+	
+	func deserialize(v: int) -> bool:
+		tot_cents = v
+		return true
+		
 		
 class Transaction:
 	var cash: Cash
@@ -80,6 +141,27 @@ class Transaction:
 	func _init(_cash: Cash, _desc: String):
 		cash = _cash
 		description = _desc
+	
+	func serialize() -> Dictionary:
+		return {
+			"cash": cash.serialize(),
+			"description": description
+		}
+		
+	func deserialize(d: Dictionary) -> bool:
+		if !("cash" in d) or !(d["cash"] is int):
+			print("[ ERROR ] 'cash' not found while deserializing Transaction")
+			return false
+		if !("description" in d) or !(d["description"] is String):
+			print("[ ERROR ] 'description' not found while deserializing Transaction")
+			return false
+			
+		if !cash.deserialize(d["cash"]):
+			return false
+			
+		description = d["description"]
+		
+		return true
 		
 		
 class Balance:
@@ -90,6 +172,22 @@ class Balance:
 		transactions.append(Transaction.new(Cash.new(1, 0, true), "swag"))
 		transactions.append(Transaction.new(Cash.new(2, 50, false), "less swag"))
 		pass
+	
+	
+	func serialize() -> Array:
+		var ser_transactions = []
+		for t in transactions:
+			ser_transactions.append(t.serialize())
+		return ser_transactions
+		
+		
+	func deserialize(arr: Array) -> bool:
+		for ser_t in arr:
+			var t = Transaction.new(Cash.new(0, 0, false), "")
+			if !t.deserialize(ser_t):
+				return false
+			transactions.append(t)
+		return true
 		
 	
 	func remove_transaction(t: Transaction):
@@ -112,4 +210,4 @@ class Balance:
 #			assert(t is Cash and t != null)
 #			result = result.sum(t)
 #		return result
-		
+
